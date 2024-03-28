@@ -1,0 +1,85 @@
+
+
+
+
+
+
+
+
+.OrdersMain{
+    width: 100%;
+    min-height: 78vh;
+    display: flex;
+    flex: none;
+    
+    flex-direction: column;
+   
+    padding: 50px;
+}
+
+.OrdersMain h1{
+    font-size: 80px;
+    margin: 0px 0px 0px 100px;
+    color: #5d6ade;
+}
+
+.serName{
+   width: 100%; 
+}
+
+
+.cards-container{
+width: 100%;
+margin: 0 auto;
+margin-bottom: 70px;
+background-color: white;
+border-radius: 10px;
+
+}
+
+.OrdersRow{
+ 
+    padding: 10px;
+    width: 98%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    text-align: center;
+   
+    border-radius: 20px;
+    
+}
+
+.OrdersColumn{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button{
+    width: 200px;
+    font-size: 25px;
+}
+
+.heading{
+    font-weight: 700;
+    font-size: 40px;
+  
+
+}
+
+#empName{
+    color: gray;
+
+    font-size: 25px;
+
+}
+
+.secondheading{
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 20px;
+   
+}

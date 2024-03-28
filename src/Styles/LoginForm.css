@@ -1,0 +1,183 @@
+.loginform{
+    background: url('../Assets/login_img.jpg');
+    
+  display: Flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  background-size: cover;
+  background-position:center ;
+}
+
+.wrapper{
+    width: 600px;
+    
+    background: transparent;
+    backdrop-filter: blur(60px);
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    padding: 50px 60px;
+}
+
+.wrapper h1{
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0 50px 0;
+}
+
+.input-box input{
+    width: 100%;
+    height: 140%;
+    background : transparent;
+    border: 5px solid rgb(9, 9, 9);
+    border-radius: 40px;
+    font-size: 22px;
+    color: rgb(0, 0, 0);
+    padding: 20px 45px 20px 20px;
+
+}
+
+.input-box input::placeholder{
+    color: black;
+    font-size: 22px;
+    font-weight: 700;
+
+}
+
+.error {
+    
+    margin-left: 25px;
+    color: red;
+    font-size: 20px;
+    margin-top: 5px;
+    font-weight: 700;
+  }
+
+.input-box .icon{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    font-size: 25px;
+
+}
+
+
+
+.wrapper .forgot-password{
+    display: flex;
+    justify-content: right;
+    
+    margin: -15px 0 15px;
+
+}
+
+
+.forgot-password a{
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 10px 0 10px 0;
+}
+
+.forgot-password a:hover{
+
+    font-weight: 800;
+   text-decoration: underline;
+}
+
+/* .wrapper button{
+    width: 100%;
+    height: 55px;
+    background: #050505;
+    border : none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 24px;
+    color: #f8f6f6;
+    font-weight: 800;
+} */
+
+
+.wrapper button {
+    position: relative;
+    width: 100%;
+    height: 55px;
+    background: #050505;
+    border: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 24px;
+    color: #f8f6f6;
+    font-weight: 800;
+    overflow: hidden;
+}
+
+.wrapper button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.3); 
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: width 0.3s, height 0.3s, opacity 0.3s;
+    pointer-events: none;
+}
+
+.wrapper button:hover {
+    width: 100%;
+    transition: 0.6s;
+    background: rgba(51, 237, 138, 0.478);
+}
+
+.wrapper button:active::after {
+    width: 200%;
+    height: 200%;
+    opacity: 1;
+    background: rgb(102, 213, 80);
+    
+}
+
+#loginForm{
+    margin: 0;
+}
+
+
+
+
+
+.wrapper .registration-link{
+     font-size: 20px;
+    text-align: center;
+     margin-top: 20px;
+}
+
+.link{
+    color: black;
+    text-decoration:none;
+    font-weight: 700;
+}
+
+
+.link:hover{
+    color: black;
+    text-decoration: underline;
+    font-weight: 800;
+}
+
+

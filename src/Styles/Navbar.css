@@ -1,0 +1,118 @@
+.navbar {
+    width: 100%;
+    height: 120px;
+    background-color: #fcfdff;
+    display: flex;
+    flex-direction: row;
+    /* position: fixed; */
+  }
+  
+  .navbar .leftSide {
+    flex: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 150px;
+  }
+  
+  
+  .navbar .rightSide {
+    flex: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  
+  .navbar a {
+    color: rgb(16, 16, 16);
+    text-decoration: none;
+    margin: 30px;
+    font-size: 30px;
+    
+  }
+
+ 
+  .navbar a:hover {
+  
+
+   font-weight: 800;
+    
+    font-size: 30px;
+    
+  }
+
+  .navbar .rightSide button {
+   background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 70px;
+  }
+
+  .navbar .rightSide svg {
+    font-size: 40px;
+  }
+   .burgerIcon{
+    font-size: 40px;
+   }
+  
+  
+
+
+ 
+  
+  .navbar #open .hiddenLinks {
+    display: inherit;
+    margin-left: 30px;
+  }
+  
+  .navbar #close .hiddenLinks {
+    display: none;
+  }
+  
+  .navbar #open a {
+   
+    margin: 20px;
+  }
+ 
+  @media only screen and (max-width: 900px) {
+    .navbar .rightSide a {
+      width: 70px;
+    }
+    .navbar .leftSide {
+      padding-left: 50px;
+    }
+    .navbar .leftside .hiddenLinks{
+      display: none;
+    }
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .navbar .rightSide a {
+      display: none;
+    }
+  
+    .navbar .rightSide {
+      justify-content: flex-end;
+      padding-right: 50px;
+    }
+  
+    .navbar .rightSide button {
+      display: inherit;
+    }
+    .navbar .leftside .hiddenLinks{
+      display: none;
+    }
+  }
+  
+  @media only screen and (min-width: 1000px) {
+    .navbar .rightSide button {
+      display: none;
+    }
+  
+    .navbar .leftside .hiddenLinks{
+      display: none;
+    }
+  }
