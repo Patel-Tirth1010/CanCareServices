@@ -1,16 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const OrderModel = require('../Model/orderDetailsModel');
-const EmployeeModel = require('../Model/EmployeeModel');
-const app = express();
 
 
-
-
-
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 
 
@@ -69,6 +61,28 @@ router.get('/', async (req, res) => {
    
 });
 
+
+
+
+
+router.put('/Cancel', async (req, res)=>{
+  const _Id = req.params.id;
+
+    try {
+        // Find the customer by _id and delete the record
+        const deletedOrder = await OrderModel.findByIdAndDelete(_Id);
+
+        if (!deletedOrder) {  
+            return res.status(404).json({ error: 'Order not found' });
+        }
+
+        // Return a success message or any other appropriate response
+        res.json({ message: 'Order deleted successfully' });
+    } catch (error) {
+        console.error("Error deleting customer:", error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
 
 
 

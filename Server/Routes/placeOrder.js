@@ -30,6 +30,17 @@ router.post('/', async (req, res) => {
     let SerDate = date;
     let order_Status = "Pending";
 
+    let LastServiceEndTime;
+    if(serviceId=='1'){
+       LastServiceEndTime = 21;
+    }
+    else if(serviceId=='2' || serviceId=='3'){
+        LastServiceEndTime = 20;
+    }
+    else {
+        LastServiceEndTime = 22;
+    }
+
     console.log('cust_email:', cust_email);
     console.log('serviceId:', serviceId);
     console.log('approx_time:', approx_time);
@@ -113,7 +124,7 @@ for(i=0; i<empEmails.length;i++){
     for(j=0; j<orderRecords.length;j++){
         var nextsertime = parseInt(orderRecords[j].SerEndTime) + approx_time;
     
-        if(empEmails[i] == orderRecords[j].emp_Email && nextsertime <=21 ){
+        if(empEmails[i] == orderRecords[j].emp_Email && nextsertime <= LastServiceEndTime ){
             
             empEmailStructure[i].ordercount+=1;
             empEmailStructure[i].orderid = j;

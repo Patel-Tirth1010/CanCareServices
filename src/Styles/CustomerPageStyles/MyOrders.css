@@ -83,3 +83,31 @@ border-radius: 10px;
     margin-top: 20px;
    
 }
+
+
+.delNotification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fa0505;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    z-index: 1000;
+  }
+  
+  .loading-bar {
+    height: 4px;
+    background-color: #fff;
+    animation: loading 2s linear forwards; /* Animation to mimic loading */
+  }
+  
+  @keyframes loading {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }

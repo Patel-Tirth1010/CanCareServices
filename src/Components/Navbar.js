@@ -60,6 +60,7 @@ console.log(customer);
   };
 
   function logoutHandler(){
+   alert("You are going to LogOut Now");
 
     window.localStorage.removeItem("cusEmail");
     window.localStorage.removeItem("loggedIn");
@@ -130,16 +131,12 @@ console.log(customer);
           <Link to="/AllEmp">Update Employee</Link>
         </>
       )}
-        <NavDropdown title={window.localStorage.getItem("userName")}   id="collasible-nav-dropdown">
-        <NavDropdown.Item >  
-        <Link to="/profile">  My Profile</Link>      
-                  
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item onClick={logoutHandler}>
-                    Logout
-                  </NavDropdown.Item>
-        </NavDropdown>
+        
+      
+        <Link to="/profile"> {window.localStorage.getItem("userName")}</Link>      
+        <a onClick={logoutHandler}> Logout</a>        
+                 
+                 
         <button onClick={toggleNavbar}>
         <RxHamburgerMenu className="burgerIcon" />
         </button>

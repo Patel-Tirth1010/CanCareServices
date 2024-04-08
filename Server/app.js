@@ -15,6 +15,7 @@ const RegisterRouteCustomer = require('./Routes/RegisterRouteCustomer');  // Imp
 const placeOrder = require('./Routes/placeOrder');
 const  MyOrdersRouteCustomer = require('./Routes/MyOrdersRouteCustomer');
 const  CustomerProfile = require('./Routes/CustomerProfile');
+const CancleOrder = require('./Routes/cancelOrder');
 
 
 const bodyParser = require('body-parser');
@@ -28,7 +29,7 @@ const bodyParser = require('body-parser');
 app.use(cors(
     {
         origin:["http://localhost:3000"],
-        methods:["POST","GET"],
+        methods:["POST","GET","PUT"],
         credentials: true
     }
 ))
@@ -54,6 +55,8 @@ app.use('/register', RegisterRouteCustomer);
 app.use('/placeOrder', placeOrder);
 app.use('/myOrders', MyOrdersRouteCustomer);
 app.use('/profile', CustomerProfile);
+app.use('/cancle', CancleOrder);
+
 
 // app.use('/employees', employeeRoutes);
 

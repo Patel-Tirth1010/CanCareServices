@@ -2,7 +2,7 @@
     background: url('../Assets/login_img.jpg');
     
   display: Flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
   min-height: 100vh;
 
@@ -11,9 +11,8 @@
 }
 
 .wrapper{
-    width: 600px;
-    
-    background: transparent;
+    width: 60vh;
+    background-color: white;
     backdrop-filter: blur(60px);
     color: black;
     box-shadow: 0 0 10px rgba(0, 0, 0, .5);

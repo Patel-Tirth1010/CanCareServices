@@ -188,8 +188,8 @@ export const ServiceBooking = () => {
             <section id="title" className='bg-grad'>
                 <div className="row p-4 align-items-center rounded-3 serviceRow">
                     <div className="col-lg-4 p-3 p-lg-5 pt-lg-3 title-info">
+                     
                         <h1>Book Your Service</h1>
-                        <h2>{window.localStorage.getItem("custEmail")}</h2>
                         <p id="heading">{serviceName}</p>
                         <ul className='info' >
                             {serviceInfo}

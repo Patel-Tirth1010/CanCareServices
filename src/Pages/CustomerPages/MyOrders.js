@@ -3,6 +3,7 @@ import '../../Styles/CustomerPageStyles/MyOrders.css'
 import axios from 'axios';
 import { useEffect, useState } from "react";
 import moment from 'moment-timezone';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -13,11 +14,14 @@ import moment from 'moment-timezone';
 export const MyOrders = () => {
 
 const custEmail = window.localStorage.getItem("custEmail");
+const [notification, setNotification] = useState(null);
+const navigate = useNavigate();
 
 const [orders, setOrders] = useState([]);
 
+
 useEffect(() => {
- const fetchOrders = async () => {
+    const fetchOrders = async () => {
     try {
       const response = await axios.get("http://localhost:8000/myOrders", {
         params: {
@@ -36,9 +40,17 @@ useEffect(() => {
 
 const cancelOrder = async (orderId) => {
   try {
-    await axios.put(`http://localhost:8000/orders/${orderId}/cancel`);
-    // Assuming you want to refresh orders after cancellation
-    // fetchOrders();
+   const response = await axios.put("http://localhost:8000/cancle",{
+    orderId
+   });
+
+    console.log(response);
+    setNotification('Order Canceled successfully!');
+    setTimeout(() => {
+      setNotification(null);
+      navigate("/home"); // Hide notification after 5 seconds
+    }, 2000);
+   
   } catch (error) {
     console.error("Error cancelling order:", error);
   }
@@ -84,6 +96,12 @@ const cancelOrder = async (orderId) => {
             </div>
           ))}
         </div>
+        {notification && (
+        <div className="delNotification">
+          <p>{notification}</p>
+          <div className="loading-bar" />
+        </div>
+      )}
         
       </div>
 
