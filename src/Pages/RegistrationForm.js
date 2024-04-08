@@ -7,6 +7,8 @@ import { FaPhone } from "react-icons/fa6";
 import  {  useState } from "react";
 import axios from "axios";
 import RegistrationFormValidation from '../Components/registrationFormValidation.js';
+import registrationImage from '../Assets/login_img.jpg'
+
 
 
 
@@ -77,20 +79,23 @@ export const RegistrationForm = () => {
 
 
   return (
-    <div className='Registarionform'>
+    <div className='registrationMain'>
+         <div className='image'>
+                <img className='AuthImage' src={registrationImage}></img>
+             </div>
     <div className='wrapper'>
 
-        <form id='loginForm' action="Post">
+        <form id='registrationForm' className='shadow-lg' action="Post">
             <h1>Register</h1>
 
             <div className='input-box'>
-                <input type='text' onChange={(e)=>{setFName(e.target.value)}} placeholder='FirstName'/>
+                <input className='form-input' type='text' onChange={(e)=>{setFName(e.target.value)}} placeholder='FirstName'/>
                 <FaUserAlt  className='icon'/>
                 <span className='error'>{errors.fName}</span>
             </div>
 
             <div className='input-box'>
-                <input type='text' onChange={(e)=>{setLName(e.target.value)}} placeholder='LastName'/>
+                <input className='form-input' type='text' onChange={(e)=>{setLName(e.target.value)}} placeholder='LastName'/>
                 <FaUserAlt  className='icon'/>
                 <span className='error'>{errors.lName}</span>
 
@@ -98,19 +103,19 @@ export const RegistrationForm = () => {
             
 
             <div className='input-box'>
-                <input type='email' onChange={(e)=>{setEmail(e.target.value)}} placeholder='Email'/>
+                <input className='form-input' type='email' onChange={(e)=>{setEmail(e.target.value)}} placeholder='Email'/>
                 <MdAlternateEmail  className='icon'/>
                 <span className='error'>{errors.email}</span>
             </div>
 
             <div className='input-box'>
-                <input type='tel' onChange={(e)=>{setPhNum(e.target.value)}} placeholder='PhoneNumber'/>
+                <input className='form-input' type='tel' onChange={(e)=>{setPhNum(e.target.value)}} placeholder='PhoneNumber'/>
                 <FaPhone  className='icon'/>
                 
             </div>
 
             <div className='input-box'>
-                <input type={visibility ? 'text' : 'password'} placeholder='Password' onChange={(e)=> setPassword(e.target.value)}  />
+                <input className='form-input' type={visibility ? 'text' : 'password'} placeholder='Password' onChange={(e)=> setPassword(e.target.value)}  />
                 <div onClick={()=>setVisibility(!visibility)}>{visibility ? <FaUnlock className='icon' /> : <FaLock className='icon' /> }</div>
                 <span className='error'>{errors.password}</span>
             </div>
@@ -118,7 +123,7 @@ export const RegistrationForm = () => {
            
           
 
-            <button type='submit' onClick={register}>
+            <button id='registerButton' type='submit' onClick={register}>
                Register
             </button>
 

@@ -1,5 +1,5 @@
 import React, { useEffect,useState} from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation,useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 import {
@@ -10,6 +10,7 @@ import {
  
   NavDropdown,
 } from "react-bootstrap";
+import logo from "../Assets/logo.png"
 
 import '../Styles/Navbar.css';
 
@@ -54,25 +55,38 @@ console.log(customer);
 
   const [openLinks, setOpenLinks] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleNavbar = () => {
     setOpenLinks(!openLinks);
   };
 
   function logoutHandler(){
-   alert("You are going to LogOut Now");
+  
 
+   const logout = window.confirm("Do you Want To LogOut?");
+if(logout){
     window.localStorage.removeItem("cusEmail");
     window.localStorage.removeItem("loggedIn");
     window.localStorage.clear();
     navigate("/");
+}
+else
+return;
   
   }
+  
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
  
 
 
   return (
     <div className="navbar bg-grad shadow" >
+      <div className="logo"><img src={logo}></img></div>
+
       
       <div className="leftSide" id={openLinks ? "open" : "close"}>
       
@@ -89,7 +103,8 @@ console.log(customer);
       )}
       {employee && (
         <>
-        <Link to="/todaysOrders">Todays Orders</Link>
+        <Link to="/todaysOrders"  style={isActive("/todaysOrders") ? { color: "blue" } : { color: "black" }}>Todays Orders</Link>
+        {console.log("is",isActive("/todaysOrders"))}
           <Link to="/allOrders">All Orders</Link>
           
         </>
@@ -98,7 +113,7 @@ console.log(customer);
 {admin && (
         <>
         <Link to="/AddEmp">Add Employee</Link>
-          <Link to="/AllEmp">All Employees</Link>
+          {/* <Link to="/AllEmp">All Employees</Link> */}
           <Link to="/AllEmp">Update Employee</Link>
         </>
       )}
@@ -109,38 +124,40 @@ console.log(customer);
       <div className="rightSide">
       {console.log("cus",customer)}
 
+
       {customer && (
         <>
-          <Link to="/home">Home</Link>
-          <Link to="/myorders">My Orders</Link>
-          <Link to="/contact">Contact</Link>
+          <Link to="/home" style={isActive("/home") ? { color: "#2857f5", fontWeight: 800, fontSize:40 } : { color: "black" }}>Home</Link>
+          <Link to="/myorders" style={isActive("/myorders") ? { color: "#2857f5", fontWeight: 800, fontSize:40 } : { color: "black" }}>My Orders</Link>
+          <Link to="/contact" style={isActive("/contact") ? { color: "#2857f5", fontWeight: 800, fontSize:40 } : { color: "black" }}>Contact</Link>
         </>
       )}
 
 {employee && (
         <>
-        <Link to="/todaysOrders">Todays Orders</Link>
-          <Link to="/allOrders">All Orders</Link>
+        <Link to="/todaysOrders" style={isActive("/todaysOrders") ? { color: "#2857f5", fontWeight: 800, fontSize:40 } : { color: "black" }} >Todays Orders</Link>
+          <Link to="/allOrders" style={isActive("/allOrders") ? { color: "#2857f5", fontWeight: 800, fontSize:40 } : { color: "black" }} >All Orders</Link>
           
         </>
       )}
       {admin && (
         <>
-        <Link to="/AddEmp">Add Employee</Link>
-          <Link to="/AllEmp">All Employees</Link>
-          <Link to="/AllEmp">Update Employee</Link>
+        <Link to="/addEmp" style={isActive("/AddEmp") ? { color: "#2857f5", fontWeight: 800, fontSize:40 } : { color: "black" }}>Add Employee</Link>
+          {/* <Link to="/viewAllEmp" style={isActive("/AllEmp") ? { color: "#2857f5", fontWeight: 800, fontSize:40 } : { color: "black" }}>All Employees</Link> */}
+          <Link to="/editEmp" style={isActive("/AllEmp") ? { color: "#2857f5", fontWeight: 800, fontSize:40 } : { color: "black" }}>Update Employee</Link>
         </>
       )}
         
       
-        <Link to="/profile"> {window.localStorage.getItem("userName")}</Link>      
+        <Link to="/profile" style={isActive("/profile") ? { color: "#2857f5", fontWeight: 800, fontSize:40 } : { color: "black" }}> {window.localStorage.getItem("userName")}</Link>      
         <a onClick={logoutHandler}> Logout</a>        
                  
                  
-        <button onClick={toggleNavbar}>
+       
+      </div>
+      <button className="navbarButton" onClick={toggleNavbar}>
         <RxHamburgerMenu className="burgerIcon" />
         </button>
-      </div>
       <hr></hr>
     </div>
   );

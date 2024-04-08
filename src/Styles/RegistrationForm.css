@@ -1,15 +1,30 @@
-button{
-    margin-top: 80px;
-}
-
-.Registarionform{
-    background: url('../Assets/login_img.jpg');
-    
-  display: Flex;
-  justify-content: center;
+.registrationMain{
+ 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
-  min-height: 100vh;
-
-  background-size: cover;
-  background-position:center ;
+  
 }
+
+
+
+.AuthImage{
+   
+  height:100vh;
+  width: 100vh;
+  
+  }
+  
+
+
+  #registrationForm{
+    padding: 70px;
+    width: 55%;
+    border-radius: 30px;
+  }
+
+  #registerButton{
+    height: 60px;
+  }
+

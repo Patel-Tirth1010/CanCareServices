@@ -10,6 +10,8 @@ import img4 from '../../Assets/cleanservice.png'
 import img5 from '../../Assets/grooming.png'
 import img6 from '../../Assets/driveway.png'
 import img7 from '../../Assets/pest.png'
+import img8 from '../../Assets/pest2.png'
+
 
 
 
@@ -48,7 +50,7 @@ console.log("hey");
 
 
       <div className="row  shadow-lg card-row  ">
-        <div className="col-md-4  " >
+        <div className="col-md-4 card-container " >
           <div className="card">
             <Link to="/service-booking/1">
             <img className="cardimg" src={img4} alt="Placeholder Image" />
@@ -64,7 +66,7 @@ console.log("hey");
         <div className="col-md-4 card-container " >
           <div className="card">
           <Link to="/service-booking/2">
-            <img className="cardimg" src={img5} alt="Placeholder Image" />
+            <img className="cardimg cardImage" src={img5} alt="Placeholder Image" />
             </Link>
             <div className="card-content">
               <h3>HairCutting</h3>
@@ -88,7 +90,7 @@ console.log("hey");
         <div className="col-md-4 card-container">
           <div className="card">
           <Link to="/service-booking/4">
-            <img className="cardimg" src={img7} alt="Placeholder Image" />
+            <img className="cardimg cardImage" src={img8} alt="Placeholder Image" />
             </Link>
             <div className="card-content">
               <h3>PestControl</h3>

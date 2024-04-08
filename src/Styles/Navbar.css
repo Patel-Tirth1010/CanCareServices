@@ -4,24 +4,42 @@
     background-color: #fcfdff;
     display: flex;
     flex-direction: row;
-    /* position: fixed; */
+  }
+.logo{
+  display: flex;
+  margin-left: 100px;
+}
+
+  .logo img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+   
+  }
+
+ .active {
+  
+    font-weight: bold;
+    color: #2857f5; 
   }
   
   .navbar .leftSide {
-    flex: 50%;
+    flex: 33.33%;
     height: 100%;
     display: flex;
     align-items: center;
-    padding-left: 150px;
+    /* padding-left: 150px; */
   }
   
   
   .navbar .rightSide {
-    flex: 50%;
+    flex: 33.33%;
     height: 100%;
-    display: flex;
+    display: fl
+    ex;
     align-items: center;
     justify-content: center;
+
   }
 
   
@@ -43,7 +61,7 @@
     
   }
 
-  .navbar .rightSide button {
+  .navbar .rightSide .navbarButton {
    background-color: transparent;
     border: none;
     color: white;
@@ -56,8 +74,13 @@
   }
    .burgerIcon{
     font-size: 40px;
+    margin-right: 100px;
    }
   
+   .navbarButton{
+    border: 0px;
+    background: transparent;
+   }
   
 
 
@@ -77,42 +100,44 @@
     margin: 20px;
   }
  
-  @media only screen and (max-width: 900px) {
-    .navbar .rightSide a {
+  @media only screen and (max-width: 1460px) {
+    .navbar .rightSide Link {
+      display: none;
       width: 70px;
     }
     .navbar .leftSide {
       padding-left: 50px;
     }
-    .navbar .leftside .hiddenLinks{
-      display: none;
+    .navbar .leftSide .hiddenLinks{
+      display: inline;
     }
-  }
-  
-  @media only screen and (max-width: 1000px) {
-    .navbar .rightSide a {
-      display: none;
-    }
-  
     .navbar .rightSide {
-      justify-content: flex-end;
-      padding-right: 50px;
+      display: none;
     }
   
-    .navbar .rightSide button {
-      display: inherit;
+    .navbar .rightSide .navbarButton {
+      display: inline;
+      /* border: 2px solid black; */
     }
-    .navbar .leftside .hiddenLinks{
-      display: none;
+    .burgerIcon{
+      display: inline;
     }
   }
   
-  @media only screen and (min-width: 1000px) {
-    .navbar .rightSide button {
+  
+  @media only screen and (min-width: 1460px) {
+    .navbar .rightSide .navbarButton {
       display: none;
     }
+    .burgerIcon{
+      display: none;
+    }
+
   
-    .navbar .leftside .hiddenLinks{
+    .navbar .leftSide .hiddenLinks{
       display: none;
     }
   }
+
+
+  

@@ -6,6 +6,7 @@ import { MdAlternateEmail } from "react-icons/md";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import RadioButtonGroup from '../Components/radioButtonGroup';
+import loginImage from '../Assets/login_img.jpg'
 
 
 
@@ -16,20 +17,7 @@ export const LoginForm = () => {
 
     const navigate = useNavigate();
 axios.defaults.withCredentials = true;
-    
-    // useEffect(() => {
-    //     // Check session upon component load
-    //     axios.get("http://localhost:8000/login/session-status")
-    //     .then(res => {
-    //         console.log("response",res.data);
-    //         if (res.data === 'loggedIn') {
-    //             navigate("/home"); // Redirect if logged in
-    //             }
-    //         })
-    //         .catch(error => {
-    //             console.error("Error checking session status:", error);
-    //         });
-    // }, [navigate]);
+   
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState("")
@@ -48,27 +36,28 @@ const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         setEmailError('');
         setPasswordError('');
 
-        let isValid = true;
+     
         if (!email) {
             setEmailError('Email is required');
-            isValid = false;
+          return;
         }
         else if(!emailRegex.test(email)){
             setEmailError('Wrong email format');
-            isValid = false;
+            return;
+
         }
         if (!password) {
             setPasswordError('Password is required');
-            isValid = false;
+            return;
+
         }
 
         
-        if (!isValid) {
-            return;
-        }
+       
 
         try {
 
+            console.log(password);
             await axios.post("http://localhost:8000/login", {
                 email,password,selectedOption
             })
@@ -91,13 +80,13 @@ const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
                            else if(selectedOption=="Employee"){
                             window.localStorage.setItem("empEmail", email)
                             window.localStorage.setItem("loggedIn","emp");
-                            navigate("/home");
+                            navigate("/todaysOrders");
 
                            }
                            else if(selectedOption=="Admin"){
                             window.localStorage.setItem("adminEmail", email)
                             window.localStorage.setItem("loggedIn","admin");
-                            navigate("/home");
+                            navigate("/addEmp");
                            }
 
                     }
@@ -122,38 +111,60 @@ const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         setSelectedOption(event.target.value);
       }
 
+      function forgotPassword(e){
+        e.preventDefault()
+
+         
+        if(selectedOption=="Customer"){
+            window.localStorage.setItem("loggedIn","cus"); 
+           }
+           else if(selectedOption=="Employee"){
+            window.localStorage.setItem("loggedIn","emp");
+           }
+           else if(selectedOption=="Admin"){
+            window.localStorage.setItem("loggedIn","admin");
+           }
+
+           navigate('/forgotpassword');
+        
+      }
+
 
 
     return (
 
-        
+       
 
-        <div className='loginform'>
+        <div className='LoginMain'>
+             <div className='image'>
+                
+                <img className="AuthImage" src={loginImage}></img>
+             </div>
         <div className='wrapper'>
-
-            <form id="loginForm" action="POST">
+        
+            <form id="loginForm" action="POST" className='shadow-lg'>
                 <h1>Login</h1>
                
                 <RadioButtonGroup selectedOption={selectedOption} handleChange={handleChange} />
 
                 <div className='input-box'>
-                    <input type='Email' onChange={(e) => { setEmail(e.target.value) }} placeholder='Email' />
+                    <input className='form-input' type='Email' onChange={(e) => { setEmail(e.target.value) }} placeholder='Email' />
                     <MdAlternateEmail className='icon' />
                     <span className='error'>{EmailError}</span>
                 </div>
 
                 <div className='input-box'>
-                    <input type={visibility ? 'text' : 'password'} placeholder='Password' onChange={(e) => setPassword(e.target.value)}/>
+                    <input className='form-input' type={visibility ? 'text' : 'password'} placeholder='Password' onChange={(e) => setPassword(e.target.value)}/>
                     <div onClick={() => setVisibility(!visibility)}>{visibility ? <FaUnlock className='icon' /> : <FaLock className='icon' />}</div>
                     <span className='error'>{passwordError}</span>
                 </div>
 
 
                 <div className='forgot-password'>
-                    <Link className='link'>Forgot Password?</Link>
+                    <Link className='link' onClick={forgotPassword}>Forgot Password?</Link>
                 </div>
 
-                <button type='submit' onClick={submit}>
+                <button className='btn' type='submit' onClick={submit}>
                     Login
                 </button>
 

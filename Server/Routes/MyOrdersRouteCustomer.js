@@ -35,6 +35,9 @@ router.get('/', async (req, res) => {
               }
             },
             {
+              $sort: { SerDate: -1 } // Sort orders by SerDate in ascending order
+          },
+            {
               $project: {
                 "order_Status": 1,
                 "Amount": 1,
@@ -65,24 +68,24 @@ router.get('/', async (req, res) => {
 
 
 
-router.put('/Cancel', async (req, res)=>{
-  const _Id = req.params.id;
+// router.put('/Cancel', async (req, res)=>{
+//   const _Id = req.params.id;
 
-    try {
-        // Find the customer by _id and delete the record
-        const deletedOrder = await OrderModel.findByIdAndDelete(_Id);
+//     try {
+//         // Find the customer by _id and delete the record
+//         const deletedOrder = await OrderModel.findByIdAndDelete(_Id);
 
-        if (!deletedOrder) {  
-            return res.status(404).json({ error: 'Order not found' });
-        }
+//         if (!deletedOrder) {  
+//             return res.status(404).json({ error: 'Order not found' });
+//         }
 
-        // Return a success message or any other appropriate response
-        res.json({ message: 'Order deleted successfully' });
-    } catch (error) {
-        console.error("Error deleting customer:", error);
-        res.status(500).json({ error: 'Internal server error' });
-    }
-});
+//         // Return a success message or any other appropriate response
+//         res.json({ message: 'Order deleted successfully' });
+//     } catch (error) {
+//         console.error("Error deleting customer:", error);
+//         res.status(500).json({ error: 'Internal server error' });
+//     }
+// });
 
 
 

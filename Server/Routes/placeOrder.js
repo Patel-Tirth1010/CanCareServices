@@ -3,7 +3,7 @@ const router = express.Router();
 const app = express();
 const empSerModel = require('../Model/emp_ser_Model');
 const OrderModel = require('../Model/orderDetailsModel');
-
+let assignedEmployeeEmail;
 
 
 
@@ -78,6 +78,7 @@ router.post('/', async (req, res) => {
 
             if (firstUniqueEmail != undefined) {
                 const emp_Email = firstUniqueEmail;
+                assignedEmployeeEmail = firstUniqueEmail;
                 const SerId = serviceId;
                 const cust_Email = cust_email;
                 const Address = address;
@@ -155,6 +156,7 @@ console.log("st3",empEmailStructure);
 
 
                 const emp_Email = orderRecords[minOrderCountId].emp_Email;
+                assignedEmployeeEmail = orderRecords[minOrderCountId].emp_Email
                 const SerId = serviceId;
                 const cust_Email = cust_email;
                 const Address = address;
@@ -191,6 +193,7 @@ res.json("Booked");
         else {
 
             const emp_Email = empEmails[0];
+            assignedEmployeeEmail = empEmails[0];   
             const SerId = serviceId;
             const cust_Email = cust_email;
             const Address = address;
@@ -215,6 +218,8 @@ res.json("Booked");
 
             res.json("Booked");
         }
+
+
 
     } catch (error) {
         console.error("Error creating ORDER :", error);

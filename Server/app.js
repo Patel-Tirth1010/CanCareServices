@@ -16,6 +16,17 @@ const placeOrder = require('./Routes/placeOrder');
 const  MyOrdersRouteCustomer = require('./Routes/MyOrdersRouteCustomer');
 const  CustomerProfile = require('./Routes/CustomerProfile');
 const CancleOrder = require('./Routes/cancelOrder');
+const ForgotPasswordController = require('./Routes/ForgotPasswordController');
+
+// Employee
+
+const empHomeController = require('./Routes/empHomeController')
+const empAllOrdersController = require('./Routes/empAllOrdersController')
+
+
+//Admin
+const addEmployeeController = require('./Routes/AddEmployeeController')
+const editEmployeeController = require('./Routes/EditEmployeeController')
 
 
 const bodyParser = require('body-parser');
@@ -38,6 +49,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(bodyParser.json())
 
+app.set("view engine", "ejs");
+
 
 
 
@@ -56,6 +69,17 @@ app.use('/placeOrder', placeOrder);
 app.use('/myOrders', MyOrdersRouteCustomer);
 app.use('/profile', CustomerProfile);
 app.use('/cancle', CancleOrder);
+app.use('/forgotPassword', ForgotPasswordController);
+
+
+//Mount the Routes for Employee
+app.use('/todaysOrders', empHomeController);
+app.use('/allOrders', empAllOrdersController);
+
+//moute routes for Admin
+app.use('/addEmp',addEmployeeController);
+app.use('/getEmp', editEmployeeController);
+
 
 
 // app.use('/employees', employeeRoutes);

@@ -20,7 +20,7 @@
 
   }
 
-  form{
+.serviceBookingForm{
     margin-left: 60px;
   }
   
@@ -45,7 +45,7 @@
     color: #343a40;
   }
  
-  .form-input{
+  .serviceBookingFormInput{
     margin-bottom: 20px;
     font-size: 20px;
   }
@@ -152,6 +152,14 @@ margin-left: 100px;
   display: flex;
   justify-content: center;
 }
+
+
+.serviceImage{
+  width: 700px;
+  height: 400px;
+
+}
+
 
 
 

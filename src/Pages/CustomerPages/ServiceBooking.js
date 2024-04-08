@@ -196,8 +196,8 @@ export const ServiceBooking = () => {
                         </ul>
                     </div>
         
-                    <div className="col-lg-4 offset-lg-1 p-0 overflow-hidden " >
-                        <img src={serviceImage} alt="First slide" />
+                    <div className="col-lg-4  p-0 overflow-hidden serviceImageDiv" >
+                        <img src={serviceImage} className="serviceImage"alt="First slide" />
                     </div>
 
 
@@ -206,22 +206,22 @@ export const ServiceBooking = () => {
 
             <div className="cleaning-service-form row p-4 ">
                 <div className="col-lg-6 ">
-                    <form onSubmit={handleSubmit}>
+                    <form className='serviceBookingForm' onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label className="form-label" htmlFor="date">Select Date:</label>
-                            <input type="date" id="date" className="form-input"  value={selectedDate} onChange={handleDateChange} />
+                            <input type="date" id="date" className="form-input serviceBookingFormInput"  value={selectedDate} onChange={handleDateChange} />
                            
                             <span className='error'>{errors.selectedDate}</span>
                         </div>
                         <div className="address-group">
                             <label className="form-label">Enter Address:</label>
-                            <input type="text" className="form-input" placeholder="Street Address" value={streetAddress} onChange={(e) => setStreetAddress(e.target.value)} />
+                            <input type="text" className="form-input serviceBookingFormInput" placeholder="Street Address" value={streetAddress} onChange={(e) => setStreetAddress(e.target.value)} />
                             <span className='error'>{errors.streetAddress}</span>
-                            <input type="text" className="form-input" placeholder="City" value={city} onChange={(e) => setCity(e.target.value)} />
+                            <input type="text" className="form-input serviceBookingFormInput" placeholder="City" value={city} onChange={(e) => setCity(e.target.value)} />
                             <span className='error'>{errors.city}</span>
-                            <input type="text" className="form-input" placeholder="Province" value={state} onChange={(e) => setState(e.target.value)} />
+                            <input type="text" className="form-input serviceBookingFormInput" placeholder="Province" value={state} onChange={(e) => setState(e.target.value)} />
                             <span className='error'>{errors.state}</span>
-                            <input type="text" className="form-input" placeholder="Postal Code" value={zipCode} onChange={(e) => setZipCode(e.target.value)} />
+                            <input type="text" className="form-input serviceBookingFormInput" placeholder="Postal Code" value={zipCode} onChange={(e) => setZipCode(e.target.value)} />
                             <span className='error'>{errors.zipCode}</span>
                         </div>
                         <button type="submit" className="submit-button">Calculate Cost</button>
@@ -238,9 +238,11 @@ export const ServiceBooking = () => {
                             <p>Tax: {tax}</p>
 
                             <p>Estimated Cost: ${estimatedCost}</p>
+                            <p> Pay Conviniently at your home after the service.<br></br>Accepted Payment Options: Debit / Credit</p>
+                            <h6>You can cancel the order before 24hr of the service.</h6>
 
                             <button id="placeOrder" type='submit' onClick={placeOrder}>
-                                Place Order
+                                Book Service
                             </button>
 
                             {notification && (

@@ -2,9 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const CustomerModel = require('../Model/CustomerModel');
-const app = express()
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+
 // Define routes for the Customer collection
 
 const Address = "";
@@ -16,7 +14,9 @@ const EmailStatus = false;
 
 // POST request to create a new customer
 router.post('/', async (req, res) => {
-    const{ FName, LName, password, email, PhoneNumber}=req.body
+    const{ FName, LName, password, email, phone}=req.body
+
+    const PhoneNumber = phone;
     // FName : String,
     // LName : String,
     // PhoneNumber: Number,

@@ -8,6 +8,16 @@ import { ServiceBooking } from "./Pages/CustomerPages/ServiceBooking";
 import Home from "./Pages/CustomerPages/Home";
 import { MyOrders } from "./Pages/CustomerPages/MyOrders";
 import { Profile } from "./Pages/CustomerPages/Profile";
+import { ForgotPassword } from "./Pages/ForgotPassword";
+import { EmpHome } from "./Pages/EmpPages/EmpHome";
+import { EmpAllOrders } from "./Pages/EmpPages/EmpAllOrders";
+import { AddEmp } from "./Pages/AdminPages/AddEmp";
+// import { AllEmp } from "./Pages/AdminPages/AllEmp";
+import { EditEmp } from "./Pages/AdminPages/EditEmp";
+
+
+
+
 
 
 
@@ -20,6 +30,8 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginForm/>}/>
         <Route path="/register" element={<RegistrationForm/>}/>
+        <Route path="/forgotpassword" element={<ForgotPassword/>}/>
+
         <Route
   path="/*"
   element={
@@ -30,6 +42,12 @@ function App() {
         <Route path="/service-booking/:id" element={<ServiceBooking/>}/>
         <Route path="/myorders" element={<MyOrders/>}/>
         <Route path="/profile" element={<Profile/>}/>
+        <Route path="/todaysOrders" element={<EmpHome/>}/>
+        <Route path="/allOrders" element={<EmpAllOrders/>}/>
+        <Route path="/addEmp" element={<AddEmp/>}/>
+        {/* <Route path="/viewAllEmp" element={<AllEmp/>}/> */}
+        <Route path="/editEmp" element={<EditEmp/>}/>
+
       </Routes>
       <Footer/>
     </>

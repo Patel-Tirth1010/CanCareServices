@@ -1,0 +1,39 @@
+.ordersFilterDiv{  
+    
+display: flex;
+justify-content: space-evenly;
+margin-bottom: 100px;
+margin-top: 50px;
+padding: 50px;
+border-radius: 30px;
+}
+
+.ordersFilterDiv h2{
+    width: 300px;
+}
+
+.ordersFilterDiv input{
+    width: 800px;
+font-size: 20px;
+font-weight: 700;
+}
+
+.ordersFilterDiv button{
+    width: 400px;
+color: rgb(254, 251, 251);
+font-weight: 800;
+font-size: 28px;
+background-color: rgb(13, 13, 13);
+}
+
+
+
+
+
+.emptyDiv{
+ border-radius: 20px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

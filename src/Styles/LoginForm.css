@@ -1,24 +1,48 @@
-.loginform{
-    background: url('../Assets/login_img.jpg');
-    
-  display: Flex;
-  justify-content: right;
-  align-items: center;
-  min-height: 100vh;
-
-  background-size: cover;
-  background-position:center ;
+.LoginMain{
+ 
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   align-items: center;
+  
+   overflow: hidden;
+   
 }
+
+
+
+ .AuthImage{
+   
+height:100vh;
+width: 100vh;
+
+
+}
+
+
+
+/* .image{
+    width: 110vh;
+} */
 
 .wrapper{
-    width: 60vh;
-    background-color: white;
-    backdrop-filter: blur(60px);
-    color: black;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
-    border-radius: 10px;
-    padding: 50px 60px;
+    height:100vh;
+    width: 100vh;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+     
 }
+
+#loginForm{
+width: 50%;
+padding: 50px;
+border-radius: 20px;
+}
+
+
 
 .wrapper h1{
     font-size: 50px;
@@ -37,9 +61,10 @@
     width: 100%;
     height: 140%;
     background : transparent;
-    border: 5px solid rgb(9, 9, 9);
+    /* border: 1px solid rgb(15, 36, 220); */
     border-radius: 40px;
-    font-size: 22px;
+    font-size: 23px;
+    font-weight: 700;
     color: rgb(0, 0, 0);
     padding: 20px 45px 20px 20px;
 
@@ -54,7 +79,7 @@
 
 .error {
     
-    margin-left: 25px;
+    /* margin-left: 25px; */
     color: red;
     font-size: 20px;
     margin-top: 5px;
@@ -72,20 +97,19 @@
 
 
 .wrapper .forgot-password{
-    display: flex;
-    justify-content: right;
+   text-align: right;
     
-    margin: -15px 0 15px;
+    /* margin: -15px 0 15px; */
 
+    margin-bottom: 20px ;
 }
 
 
 .forgot-password a{
     color: black;
     text-decoration: none;
-    font-size: 20px;
-    font-weight: 700;
-    margin: 10px 0 10px 0;
+    font-size: 23px;
+    font-weight: 800;
 }
 
 .forgot-password a:hover{
@@ -94,30 +118,18 @@
    text-decoration: underline;
 }
 
-/* .wrapper button{
-    width: 100%;
-    height: 55px;
-    background: #050505;
-    border : none;
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0,0,0,.1);
-    cursor: pointer;
-    font-size: 24px;
-    color: #f8f6f6;
-    font-weight: 800;
-} */
 
 
 .wrapper button {
     position: relative;
     width: 100%;
-    height: 55px;
+    height: 60px;
     background: #050505;
     border: none;
     border-radius: 40px;
     box-shadow: 0 0 10px rgba(0,0,0,.1);
     cursor: pointer;
-    font-size: 24px;
+    font-size: 28px;
     color: #f8f6f6;
     font-weight: 800;
     overflow: hidden;
@@ -142,19 +154,11 @@
     width: 100%;
     transition: 0.6s;
     background: rgba(51, 237, 138, 0.478);
-}
+    color: #050505;
 
-.wrapper button:active::after {
-    width: 200%;
-    height: 200%;
-    opacity: 1;
-    background: rgb(102, 213, 80);
     
 }
 
-#loginForm{
-    margin: 0;
-}
 
 
 

@@ -1,9 +1,9 @@
-import React from 'react'
-import '../../Styles/CustomerPageStyles/MyOrders.css'
-import axios from 'axios';
-import { useEffect, useState } from "react";
-import moment from 'moment-timezone';
-import { useNavigate } from 'react-router-dom';
+  import React from 'react'
+  import '../../Styles/CustomerPageStyles/MyOrders.css'
+  import axios from 'axios';
+  import { useEffect, useState } from "react";
+  import moment from 'moment-timezone';
+  import { useNavigate } from 'react-router-dom';
 
 
 
@@ -57,6 +57,13 @@ const cancelOrder = async (orderId) => {
 };
 
 
+const isWithin24Hours = (serviceStartTime) => {
+  const currentTime = moment();
+  const serviceTime = moment(serviceStartTime);
+  const difference = serviceTime.diff(currentTime, 'hours');
+  return difference > 24;
+};
+
     return (
        
 
@@ -87,7 +94,7 @@ const cancelOrder = async (orderId) => {
                 </div>
               </div>
               <div>
-                {order.order_Status === "Pending" && (
+                {order.order_Status === "Pending"  && isWithin24Hours(order.SerDate)  && (
                   <button type="button" className="btn btn-danger button" onClick={() => cancelOrder(order._id)}>Cancel</button>
                 )}
 

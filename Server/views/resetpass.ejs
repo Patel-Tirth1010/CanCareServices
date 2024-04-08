@@ -1,0 +1,102 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Change</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Additional CSS for better appearance */
+        .card {
+            margin-top: 50px;
+            max-width: 600px;
+            /* height: 400px;    */
+            margin-left: auto;
+            margin-right: auto;
+            border: 2px solid black;
+            
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .btn-submit {
+            width: 100%;
+            height: 50px;
+            font-size: 25px;
+            color: black;
+            font-weight: 800;
+        }
+
+        .form-control{
+            height: 70px;
+            width: 100%;
+            border: 2px solid black;
+margin-bottom: 20x;
+font-size: 25px;
+
+
+        }
+        .form-control::placeholder{
+         
+            color: black;
+            font-size: 20px;
+            font-weight: 500;
+
+
+        }
+
+        label{
+            font-size: 25px;
+            color: black;
+            font-weight: 800;
+margin-bottom: 10x;
+
+
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <h1 class="card-title" hidden><%= email %></h1>
+                <form action="" method="post" id="passwordChangeForm">
+                    <div class="form-group">
+                        <label for="Password">New Password</label>
+                        <input type="password" class="form-control" name="Password" id="Password" placeholder="Enter New Password" style="font-size: 18px;" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Confirm-Password">Confirm New Password</label>
+                        <input type="password" class="form-control" name="Confirm-Password" id="Confirm-Password" placeholder="Confirm New Password" style="font-size: 18px;" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for password matching -->
+    <script>
+        var status = '<%- JSON.stringify(status)%>';
+        if (JSON.parse(status) == "verified") {
+            if (confirm("Do you want to login?")) {
+                window.location.href = "http://localhost:3000/";
+            }
+        }
+
+        document.getElementById("passwordChangeForm").addEventListener("submit", function (event) {
+            var password = document.getElementById("Password").value;
+            var confirmPassword = document.getElementById("Confirm-Password").value;
+            if (password !== confirmPassword) {
+                alert("Passwords do not match");
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
